@@ -5,12 +5,12 @@ description = "Text-file-backed building blocks for SysML v2 system models"
 documentation = "https://docs.rs/sysml2"
 edition = "2021"
 exclude = ["docs/SysML-v2.0-Language-Specification.pdf"]
-homepage = "https://github.com/iancleary/sysml"
+homepage = "https://github.com/iancleary/sysml2"
 keywords = ["sysml", "mbse", "modeling", "systems", "toml"]
 license = "MIT"
 name = "sysml2"
 readme = "README.md"
-repository = "https://github.com/iancleary/sysml"
+repository = "https://github.com/iancleary/sysml2"
 rust-version = "1.85"
 version = "0.1.0"
 
