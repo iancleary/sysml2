@@ -1,0 +1,105 @@
+schema_version = 1
+name = "Vehicle"
+
+[[elements]]
+id = "Vehicle"
+name = "Vehicle"
+kind = "part_definition"
+documentation = "A road vehicle composed of an engine and fuel system."
+
+[[elements]]
+id = "Engine"
+name = "Engine"
+kind = "part_definition"
+
+[[elements]]
+id = "Fuel"
+name = "Fuel"
+kind = "item_definition"
+
+[[elements]]
+id = "FuelPort"
+name = "FuelPort"
+kind = "port_definition"
+
+[[elements]]
+id = "vehicle"
+name = "vehicle"
+kind = "part_usage"
+
+[[elements]]
+id = "engine"
+name = "engine"
+kind = "part_usage"
+owner = "vehicle"
+
+[elements.multiplicity]
+lower = 1
+upper = 1
+
+[[elements]]
+id = "fuel_in"
+name = "fuelIn"
+kind = "port_usage"
+owner = "engine"
+direction = "in"
+
+[[elements]]
+id = "fuel"
+name = "fuel"
+kind = "item_usage"
+owner = "vehicle"
+
+[[elements]]
+id = "start"
+name = "start"
+kind = "action_usage"
+owner = "vehicle"
+
+[[elements]]
+id = "running"
+name = "running"
+kind = "state_usage"
+owner = "vehicle"
+
+[[elements]]
+id = "SafeVehicle"
+name = "SafeVehicle"
+kind = "requirement_definition"
+documentation = "The vehicle shall operate safely."
+
+[[relationships]]
+id = "vehicle_type"
+kind = "feature_typing"
+sources = ["vehicle"]
+targets = ["Vehicle"]
+
+[[relationships]]
+id = "engine_type"
+kind = "feature_typing"
+sources = ["engine"]
+targets = ["Engine"]
+
+[[relationships]]
+id = "fuel_type"
+kind = "feature_typing"
+sources = ["fuel"]
+targets = ["Fuel"]
+
+[[relationships]]
+id = "fuel_port_type"
+kind = "feature_typing"
+sources = ["fuel_in"]
+targets = ["FuelPort"]
+
+[[relationships]]
+id = "fuel_flow"
+kind = "flow"
+sources = ["fuel"]
+targets = ["fuel_in"]
+
+[[relationships]]
+id = "safe_vehicle"
+kind = "satisfaction"
+sources = ["vehicle"]
+targets = ["SafeVehicle"]

@@ -160,4 +160,8 @@ cython_debug/
 #.idea/
 
 .direnv/
-.vscode/
+.vscode/*
+!.vscode/settings.json
+
+# Keep the official OMG specification available locally without redistributing it.
+docs/SysML-v2.0-Language-Specification.pdf

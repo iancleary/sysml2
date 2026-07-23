@@ -1,8 +1,26 @@
 [package]
+authors = ["Ian Cleary <iancleary@hey.com>"]
+categories = ["data-structures", "science"]
+description = "Text-file-backed building blocks for SysML v2 system models"
+documentation = "https://docs.rs/sysml2"
 edition = "2021"
-name = "sysml"
-version = "0.0.1"
+exclude = ["docs/SysML-v2.0-Language-Specification.pdf"]
+homepage = "https://github.com/iancleary/sysml2"
+keywords = ["sysml", "mbse", "modeling", "systems", "toml"]
+license = "MIT"
+name = "sysml2"
+readme = "README.md"
+repository = "https://github.com/iancleary/sysml2"
+rust-version = "1.85"
+version = "0.1.0"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[lib]
+name = "sysml"
+
+[[bin]]
+name = "sysml"
+path = "src/main.rs"
 
 [dependencies]
+serde = { version = "1.0", features = ["derive"] }
+toml = "0.9.8"
