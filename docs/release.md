@@ -43,10 +43,7 @@ tests, and packaging, commits a version change when one exists, creates an
 annotated `v<version>` tag, pushes the default branch and tag, and creates the
 GitHub release using `gh release create`.
 
-Publishing to crates.io is handled by GitHub Actions. The published GitHub
-release event runs CI and then `cargo publish --verbose` with the repository's
-`CARGO_REGISTRY_TOKEN` Actions secret. Configure that secret before publishing
-the first release.
+Publishing to crates.io is not part of the GitHub Actions release workflow.
 
 ## Agent Routing
 

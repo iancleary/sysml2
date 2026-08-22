@@ -148,7 +148,7 @@ run_checks() {
   cargo fmt -- --check
   cargo clippy --all-targets --all-features -- -D warnings
   cargo test
-  cargo package
+  cargo package --allow-dirty
 }
 
 if [[ "$dry_run" == 1 ]]; then
