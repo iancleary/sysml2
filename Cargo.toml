@@ -12,7 +12,7 @@ name = "sysml2"
 readme = "README.md"
 repository = "https://github.com/iancleary/sysml2"
 rust-version = "1.85"
-version = "0.2.0-alpha.2"
+version = "0.3.0"
 
 [lib]
 name = "sysml"
