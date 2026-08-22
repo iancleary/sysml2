@@ -1,0 +1,71 @@
+schema_version = 1
+name = "requirements-syntax-core"
+purpose = "Locally authored syntax fixtures for requirements and verification notation"
+fixture_origin = "Original test inputs authored for sysml2; no upstream source text is vendored"
+fixture_license = "MIT"
+
+[reference_release]
+repository = "https://github.com/Systems-Modeling/SysML-v2-Release"
+tag = "2026-04"
+commit = "9baca5908ca28b53da085de69336fde48420ea8f"
+license = "EPL-2.0"
+
+[[reference_release.paths]]
+path = "sysml/src/examples/Simple Tests/RequirementTest.sysml"
+use = "requirements, assumptions, required constraints, and satisfaction notation"
+
+[[reference_release.paths]]
+path = "sysml/src/examples/Simple Tests/VerificationTest.sysml"
+use = "verification definitions, objectives, and verify notation"
+
+[[reference_release.paths]]
+path = "sysml/src/validation/08-Requirements/8-Requirements.sysml"
+use = "official requirements validation coverage"
+
+[[reference_release.paths]]
+path = "sysml/src/validation/09-Verification/9-Verification-simplified.sysml"
+use = "official verification validation coverage"
+
+[[fixtures]]
+path = "positive/requirement_capture.sysml"
+expect = "syntax-valid"
+constructs = ["requirement-def", "requirement-use", "id", "doc", "subject", "assume", "require", "satisfy"]
+
+[[fixtures]]
+path = "positive/verification_capture.sysml"
+expect = "syntax-valid"
+constructs = ["requirement-def", "requirement-use", "verification-def", "verification-use", "objective", "verify"]
+
+[[fixtures]]
+path = "negative/requirement_missing_semicolon.sysml"
+expect = "syntax-invalid"
+fault = "missing terminator after the subject declaration"
+
+[[fixtures]]
+path = "negative/verification_missing_semicolon.sysml"
+expect = "syntax-invalid"
+fault = "missing terminator after the verify declaration"
+
+[[fixtures]]
+path = "semantic-negative/unresolved_subject_type.sysml"
+expect = "profile-invalid"
+diagnostic = "resolution.unresolved_reference"
+fault = "requirement subject type is not declared or imported"
+
+[[fixtures]]
+path = "semantic-negative/requirement_wrong_type_kind.sysml"
+expect = "profile-invalid"
+diagnostic = "semantic.requirement.type_kind"
+fault = "requirement usage is typed by a part definition"
+
+[[fixtures]]
+path = "semantic-negative/satisfaction_subject_mismatch.sysml"
+expect = "profile-invalid"
+diagnostic = "semantic.satisfaction.subject_conformance"
+fault = "satisfying part type does not conform to the requirement subject type"
+
+[[fixtures]]
+path = "semantic-negative/verification_target_wrong_kind.sysml"
+expect = "profile-invalid"
+diagnostic = "semantic.verification.target_kind"
+fault = "verification target is a part usage rather than a requirement usage"

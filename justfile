@@ -1,3 +1,7 @@
+set windows-shell := ["powershell.exe", "-NoProfile", "-Command"]
+
+export RUSTDOCFLAGS := "-D warnings"
+
 # list recipes
 help:
     just --list
@@ -23,19 +27,24 @@ lint-fix:
 
 # run tests
 test:
+    cargo build --bin sysml
     cargo test --all-features
 
 # check documentation with rustdoc warnings denied
 doc-check:
-    RUSTDOCFLAGS="-D warnings" cargo doc --all-features --no-deps
+    cargo doc --all-features --no-deps
 
 # verify package contents without publishing
 package:
-    cargo package
+    cargo package --allow-dirty
 
 # build the crate
 build:
     cargo build --release
+
+# install the local sysml executable
+install:
+    cargo install --path . --bin sysml
 
 # format, lint, test, document, and package like CI
 check: fmt-check lint test doc-check package

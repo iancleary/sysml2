@@ -1,18 +1,18 @@
 [package]
 authors = ["Ian Cleary <iancleary@hey.com>"]
 categories = ["data-structures", "science"]
-description = "Text-file-backed building blocks for SysML v2 system models"
+description = "CLI-first tooling for standard SysML v2 textual models"
 documentation = "https://docs.rs/sysml2"
 edition = "2021"
 exclude = ["docs/SysML-v2.0-Language-Specification.pdf"]
 homepage = "https://github.com/iancleary/sysml2"
-keywords = ["sysml", "mbse", "modeling", "systems", "toml"]
+keywords = ["sysml", "mbse", "modeling", "systems", "cli"]
 license = "MIT"
 name = "sysml2"
 readme = "README.md"
 repository = "https://github.com/iancleary/sysml2"
 rust-version = "1.85"
-version = "0.1.0"
+version = "0.2.0-alpha.2"
 
 [lib]
 name = "sysml"
@@ -23,4 +23,6 @@ path = "src/main.rs"
 
 [dependencies]
 serde = { version = "1.0", features = ["derive"] }
-toml = "0.9.8"
+serde_json = "1.0"
+tree-sitter = "=0.24.7"
+tree-sitter-sysml = "=0.1.0"
