@@ -21,6 +21,7 @@ release.
 
 ## Notes
 
+- GitHub Actions are allowed for this public repository.
 - Standard `.sysml` text is the sole persisted model and authoring format.
 - The legacy TOML graph, positional command, and public graph API were removed
   under ADR 0002. Do not restore or replace them with another authoring format.
