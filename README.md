@@ -121,3 +121,6 @@ Paths passed to `sysml check` are resolved relative to the directory where the
 command is run.
 
 The release workflow is documented in [`docs/release.md`](docs/release.md).
+Future agent contributors should also read
+[`docs/agent-operating-loop.md`](docs/agent-operating-loop.md) before changing
+the CLI contract, validation profile, corpus, or release workflow.

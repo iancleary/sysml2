@@ -14,6 +14,9 @@ satisfaction, and verification structure. Standard `.sysml` is the sole
 persisted model and authoring format. Neither command claims complete OMG
 conformance.
 
+Read [`docs/agent-operating-loop.md`](docs/agent-operating-loop.md) before
+changing the CLI contract, validation profile, corpus, or release workflow.
+
 ## Commands
 
 ```bash
@@ -42,6 +45,13 @@ profile is pinned to SysML 2.0 release `2026-04`, commit
 expression evaluation, proof or evidence claims, application policy, full OMG
 conformance, and SysML 2.1 behavior. See
 [`docs/adr/0003-requirements-structure-validation-profile.md`](docs/adr/0003-requirements-structure-validation-profile.md).
+
+Grow validation behavior through small `.sysml` examples. Prefer focused
+positive coverage and one-fault negative fixtures with stable diagnostic
+expectations. Update `docs/cli.md` for output fields, exit statuses, or
+diagnostic compatibility, and update ADR 0003 when a rule changes the
+requirements profile claim boundary. `git diff --check` is the minimum
+verification for documentation-only changes.
 
 ## Releases
 
