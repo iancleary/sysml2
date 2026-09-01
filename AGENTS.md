@@ -2,6 +2,9 @@
 
 Rust CLI and library for checking standard SysML v2 textual models.
 
+Read [`docs/agent-operating-loop.md`](docs/agent-operating-loop.md) before
+changing the CLI contract, validation profile, corpus, or release workflow.
+
 ## Commands
 
 ```bash
@@ -10,6 +13,15 @@ cargo run -- validate --profile sysml-2.0-requirements-structure-v1 path/to/mode
 just check
 just cut-release --dry-run --version <semver> --notes-file <path>
 ```
+
+## Module Map
+
+| Surface | File | Notes |
+| --- | --- | --- |
+| Syntax checking | `src/check.rs` | input discovery, tree-sitter parsing, syntax diagnostics, `sysml check` report schema |
+| Project lowering | `src/project.rs` | private parser-neutral elements, imports, references, spans, and profile-boundary issues |
+| Requirements validation | `src/validate.rs` | profile metadata, resolution, semantic diagnostics, and validation report schema |
+| CLI | `src/main.rs` | command parsing, exit statuses, human output, and JSON output |
 
 ## Releases
 
@@ -42,6 +54,14 @@ release.
   until a separate public API decision is accepted.
 - Treat syntax parser crates as replaceable implementation dependencies; the
   CLI, diagnostics, validation levels, and compatibility policy belong here.
+- Grow validation behavior through small `.sysml` examples. Prefer focused
+  positive coverage and one-fault negative fixtures with stable diagnostic
+  expectations.
+- Update `docs/cli.md` for output fields, exit statuses, or diagnostic
+  compatibility, and update ADR 0003 when a rule changes the requirements
+  profile claim boundary.
 - Run `just check` for changes to the model, text format, CLI, or release flow.
+- `git diff --check` is the minimum verification for documentation-only
+  changes.
 - Keep `AGENTS.md`, `CLAUDE.md`, and `docs/release.md` consistent when changing
   repository workflows.
