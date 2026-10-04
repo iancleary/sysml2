@@ -58,5 +58,8 @@ verification for documentation-only changes.
 
 ## Releases
 
+`just cut-release` requires Bash on `PATH`, including on Windows. Arguments
+are forwarded literally, so quote paths with spaces at the command line.
+
 Maintain the release workflow with `create-release-process`. Execute ordinary
 releases with `cut-release` through `just cut-release`; see `docs/release.md`.

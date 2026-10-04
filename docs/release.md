@@ -3,6 +3,10 @@
 This repo has a deterministic local release runner at `scripts/cut-release.sh`.
 Use `just cut-release` as the normal entrypoint.
 
+The release recipe requires Bash on `PATH`, including on Windows. Other
+Windows recipes retain their PowerShell shell. The release recipe forwards
+arguments literally; quote paths with spaces at the command line.
+
 ## Versioning
 
 The crate version is SemVer and lives in the root `Cargo.toml`. The next version
