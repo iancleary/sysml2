@@ -36,7 +36,7 @@ doc-check:
 
 # verify package contents without publishing
 package:
-    cargo package --allow-dirty
+    cargo package
 
 # build the crate
 build:

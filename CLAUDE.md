@@ -26,6 +26,9 @@ just check
 just cut-release --dry-run --version <semver> --notes-file <path>
 ```
 
+`just package` and `just check` require committed package inputs, matching CI.
+Run the individual format, lint, test, and documentation checks while editing.
+
 ## Module Map
 
 | Module | File | Description |
